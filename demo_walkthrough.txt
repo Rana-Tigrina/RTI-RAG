@@ -1,0 +1,249 @@
+================================================================================
+🏛️ CIVIC RTI & FIRST APPEAL DRAFTER — STEP-BY-STEP USER DEMONSTRATION
+================================================================================
+
+This document walks through 3 realistic end-to-end user scenarios.
+For each example, you will see:
+  1. The Real-World Civic Scenario
+  2. What the User Does (Step-by-Step in the App / Web UI / CLI)
+  3. What the System Automatically Computes
+  4. The Exact Generated Output the User Gets
+
+================================================================================
+EXAMPLE 1: OVERFLOWING GARBAGE DUMP IN LAJPAT NAGAR (DELHI)
+================================================================================
+
+[SCENARIO]
+Ramesh, a resident of Lajpat Nagar, New Delhi, is troubled because municipal
+garbage has been piling up on the main road for 18 days, blocking traffic and
+causing severe foul smell.
+
+--------------------------------------------------------------------------------
+STEP 1: CITIZEN INTAKE & ISSUE CLASSIFICATION
+--------------------------------------------------------------------------------
+HOW THE USER DOES IT:
+  • Opens the Streamlit App (http://localhost:8501) -> Tab 1 "Intake & Classification".
+  • Types the grievance into the text box:
+      "Municipal garbage dump near Central Market Lajpat Nagar has not been cleared for 18 days causing foul smell and health hazard."
+  • Selects City from dropdown: "Delhi"
+  • Clicks: [ 🚀 Create Case & Classify ]
+
+WHAT THE SYSTEM COMPUTES:
+  • Matched Keyword: "garbage" -> Issue Type: "solid_waste_management"
+  • Municipal Authority: "MCD" (Municipal Corporation of Delhi)
+  • Department: "Solid Waste Management"
+  • Application Fee: ₹10 (INR) under Delhi RTI Rule 5
+  • Initial Status: "ISSUE_CLASSIFIED"
+
+--------------------------------------------------------------------------------
+STEP 2: GENERATE & REVIEW RTI APPLICATION DRAFT
+--------------------------------------------------------------------------------
+HOW THE USER DOES IT:
+  • Switches to Tab 2 "RTI Draft & Fee".
+  • Clicks: [ ⚡ Generate / Regenerate RTI Draft ]
+  • Inspects the legal breakdown and clicks: [ 📥 Download RTI Draft (.md) ]
+
+WHAT THE USER RECEIVES (EXACT DRAFT OUTPUT):
+--------------------------------------------------------------------------------
+# APPLICATION FOR OBTAINING INFORMATION UNDER SECTION 6(1) OF THE RTI ACT, 2005
+
+To:
+The Public Information Officer (PIO),
+Solid Waste Management,
+MCD
+Delhi, India
+[OFFICE ADDRESS — PLACEHOLDER]
+
+**Date:** 2026-08-20
+
+### 1. Applicant Details
+- **Name of Applicant:** [APPLICANT NAME — PLACEHOLDER]
+- **Address for Correspondence:** [APPLICANT ADDRESS — PLACEHOLDER]
+- **Contact Number / Email:** [CONTACT DETAILS — PLACEHOLDER]
+- **Citizenship:** Citizen of India
+
+---
+
+### 2. Particulars of Information Sought
+**Subject:** Request for information regarding civic grievance relating to Solid Waste Management in Delhi.
+
+**Description of Civic Matter:**
+> Municipal garbage dump near Central Market Lajpat Nagar has not been cleared for 18 days causing foul smell and health hazard.
+
+The applicant requests the following specific, certified information and records:
+
+1. **Daily Action Logs & Register:** Certified daily log entries of garbage clearance and waste pickup schedules maintained for the mentioned location for the last 30 days.
+2. **Designated Officers & Contractors:** Name, official designation, and contact details of the municipal supervisory officer and contractor responsible for daily solid waste management at this site.
+3. **Citizen Complaint Action Taken:** Certified copies of action taken reports on citizen complaints received regarding this specific location in the last 60 days.
+4. **Jurisdictional Transfer (Section 6(3)):** If the subject matter or any part of the records requested falls under the jurisdiction of another public authority, kindly transfer this application or relevant parts thereof to the concerned PIO within 5 days as mandated under Section 6(3) of the RTI Act, 2005, and intimate the applicant immediately.
+
+---
+
+### 3. Application Fee Details
+- **Prescribed Application Fee:** ₹10 (INR)
+- **Fee Rule & Citation:** Delhi RTI Rules provide for an application fee and exemptions. BPL applicants exempt on valid proof (Delhi RTI Rules — Fee Rules).
+- **Mode of Payment:** [IPO / Court Fee Stamp / Demand Draft / Online Portal Ref — PLACEHOLDER]
+
+---
+
+### 4. Statutory Timeframe Notice
+As mandated under **Section 7(1) of the Right to Information Act, 2005**, the Public Information Officer is required to provide the requested information within **30 days** of receipt of this application.
+
+---
+
+**Applicant Signature:**
+`[SIGNATURE / APPLICANT SIGN]`
+
+---
+*⚖️ Statutory Disclaimer: This document is an automated civic drafting assistant and does not constitute formal legal advice. Please verify the office address and PIO details of the concerned public authority before physical submission.*
+--------------------------------------------------------------------------------
+
+
+================================================================================
+EXAMPLE 2: CONTAMINATED WATER IN DELHI (OVERDUE -> FIRST APPEAL)
+================================================================================
+
+[SCENARIO]
+Priya submitted an RTI application to the Delhi Jal Board regarding dirty,
+muddy tap water in Hauz Khas on 2026-07-01. It is now 2026-08-15 (45 days later),
+and the PIO has provided NO reply.
+
+--------------------------------------------------------------------------------
+STEP 1: SUBMISSION & DEADLINE CALCULATION
+--------------------------------------------------------------------------------
+HOW THE USER DOES IT:
+  • Types grievance: "Contaminated brown muddy tap water supplying residential block in Hauz Khas."
+  • City: "Delhi"
+  • System overrides municipal body: "Delhi Jal Board (DJB)" (instead of MCD).
+  • In Tab 3 "Submission & Deadlines", records actual filing date: "2026-07-01".
+  • Clicks: [ 📬 Record Submission & Calculate Deadlines ]
+
+WHAT THE SYSTEM COMPUTES:
+  • Statutory Response Due Date: 2026-07-31 (exactly 30 days under Sec 7(1))
+  • Overdue From: 2026-08-01
+  • Status: "OVERDUE" (Alert banner: 🚨 CASE IS OVERDUE BY 15 DAYS!)
+  • First Appeal Window: 2026-08-01 to 2026-08-30
+
+--------------------------------------------------------------------------------
+STEP 2: GENERATE FIRST APPEAL UNDER SECTION 19(1)
+--------------------------------------------------------------------------------
+HOW THE USER DOES IT:
+  • Switches to Tab 4 "First Appeal (Overdue)".
+  • Sets Evaluation Date: 2026-08-15.
+  • Clicks: [ ⚖️ Generate First Appeal ]
+  • Clicks: [ 📥 Download First Appeal (.md) ]
+
+WHAT THE USER RECEIVES (EXACT FIRST APPEAL OUTPUT):
+--------------------------------------------------------------------------------
+# FIRST APPEAL UNDER SECTION 19(1) OF THE RIGHT TO INFORMATION ACT, 2005
+
+To:
+The First Appellate Authority (FAA),
+Water Supply,
+Delhi Jal Board (DJB)
+[OFFICE ADDRESS OF FIRST APPELLATE AUTHORITY — PLACEHOLDER]
+
+**Date:** 2026-08-15
+
+---
+
+### 1. Appellant Details
+- **Name of Appellant:** [APPLICANT NAME — PLACEHOLDER]
+- **Address for Correspondence:** [APPLICANT ADDRESS — PLACEHOLDER]
+- **Contact Details:** [CONTACT DETAILS — PLACEHOLDER]
+
+---
+
+### 2. Details of the Public Information Officer (PIO)
+- **Designation:** Public Information Officer (PIO)
+- **Department:** Water Supply
+- **Public Authority:** Delhi Jal Board (DJB)
+
+---
+
+### 3. Chronology & Facts of the Case
+1. **Original RTI Application Submission Date:** 2026-07-01
+2. **Statutory 30-Day Response Due Date:** 2026-07-31 (under Section 7(1) of the RTI Act, 2005)
+3. **Deemed Refusal Status:** As of 2026-08-15, the response is **15 days overdue**. The PIO has failed to provide any response, communication, or notice of rejection.
+4. **Subject of Grievance:**
+   > Contaminated brown muddy tap water supplying residential block in Hauz Khas.
+
+---
+
+### 4. Grounds for First Appeal
+1. **Deemed Refusal (Section 7(1) Violation):** The PIO has failed to furnish the information within the statutory 30-day period mandated under Section 7(1), constituting deemed refusal of information without reasonable cause.
+2. **Demand for Information Free of Cost (Section 7(6)):** Under **Section 7(6) of the RTI Act, 2005**, since the public authority failed to provide information within the statutory time limit of 30 days, the appellant is legally entitled to receive all requested information and certified records **FREE OF ANY CHARGE OR COPYING FEES**.
+3. **Personal Penalty Warning (Section 20(1)):** Continued non-compliance exposes the PIO to personal monetary penalties of ₹250 per day (up to ₹25,000) under Section 20(1) upon escalation to the Information Commission.
+
+---
+
+### 5. Reliefs & Prayers Sought
+The Appellant respectfully prays that the First Appellate Authority:
+1. Direct the PIO to immediately furnish complete, certified copies of all information sought in the original RTI application dated 2026-07-01.
+2. Direct that all certified records, reports, and logs be provided **free of cost** to the Appellant pursuant to Section 7(6).
+3. Inquire into the cause of unexplained delay by the PIO.
+
+---
+
+**Appellant Signature:**
+`[SIGNATURE / APPLICANT SIGN]`
+
+---
+*⚖️ Statutory Disclaimer: This document is an automated drafting assistant and does not constitute formal legal advice.*
+--------------------------------------------------------------------------------
+
+
+================================================================================
+EXAMPLE 3: DARK ALLEY / BROKEN STREETLIGHT IN BENGALURU
+================================================================================
+
+[SCENARIO]
+Anand in Indiranagar, Bengaluru wants to report broken streetlights that make
+the residential crossroad completely dark at night.
+
+--------------------------------------------------------------------------------
+STEP 1: BRIEF INTAKE & SYSTEM CLARIFICATION PROMPT
+--------------------------------------------------------------------------------
+HOW THE USER DOES IT:
+  • Types initially: "Dark streetlights broken" (3 words)
+  • City: "Bengaluru"
+  • System instantly alerts:
+      "⚠️ Description is brief (3 words). To maximize legal clarity, please specify:
+       - What is the nearest landmark or pole number?
+       - How long has the streetlight been non-functional?"
+  • User refines text to:
+      "Streetlights on 12th Main Indiranagar near 5th Cross are non-functional for past 3 weeks creating unsafe dark road."
+  • Clicks: [ 🚀 Create Case & Classify ]
+
+WHAT THE SYSTEM COMPUTES:
+  • Matched Keyword: "streetlights" -> Issue Type: "streetlight"
+  • Department: "Electrical / Streetlight Maintenance"
+  • Municipal Body: "BBMP" (Bruhat Bengaluru Mahanagara Palike)
+  • Application Fee: ₹10 (INR)
+  • Status: "ISSUE_CLASSIFIED"
+
+--------------------------------------------------------------------------------
+STEP 2: CLI RUNNER ALTERNATIVE (FOR TERMINAL USERS)
+--------------------------------------------------------------------------------
+HOW THE USER CAN RUN IT IN TERMINAL:
+  $ python scripts/cli.py create "Streetlights on 12th Main Indiranagar non-functional" --city Bengaluru
+  $ python scripts/cli.py draft <CASE_ID> --output Bengaluru_Streetlight_RTI.md
+
+WHAT THE USER RECEIVES (RTI OUTPUT QUESTIONS):
+--------------------------------------------------------------------------------
+1. Certified copies of streetlight maintenance contracts, AMC vendor details, and inspection reports for 12th Main Indiranagar covering the last 60 days.
+2. Designation and official contact details of the BBMP Assistant Executive Engineer (Electrical) responsible for maintenance of streetlights in Ward 80 (Indiranagar).
+3. Certified log entries of daily power supply and bulb replacement requests for this sector.
+4. Mandatory 5-day transfer under Section 6(3) if maintenance has been assigned to BESCOM or external infrastructure agency.
+--------------------------------------------------------------------------------
+
+================================================================================
+SUMMARY OF WHAT THE USER GETS IN EVERY SCENARIO:
+================================================================================
+1. Instant, deterministic municipal body and department routing.
+2. Accurate application fee rules and exemptions.
+3. Formatted, bulletproof RTI and First Appeal legal documents (.md and .txt).
+4. Automated 30-day countdown clock and statutory overdue detection.
+5. Verbatim statutory citations under Sections 6(1), 6(3), 7(1), 7(6), and 19(1).
+6. 100% local privacy — zero data sent to external cloud APIs.
+================================================================================
