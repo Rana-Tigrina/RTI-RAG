@@ -47,235 +47,219 @@ st.set_page_config(
 )
 
 # -------------------------------------------------------------
-# 🎨 LUXURY CIVIC DESIGN SYSTEM (Adaptive Light & Dark Contrast)
+# 🎨 PREMIUM CIVIC DESIGN SYSTEM (Modern, Clean, Interactive)
 # -------------------------------------------------------------
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
     
     :root {
-        --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         --font-mono: 'JetBrains Mono', monospace;
         --bg-canvas: #F8FAFC;
         --bg-surface: #FFFFFF;
         --text-primary: #0F172A;
         --text-secondary: #475569;
-        --text-muted: #64748B;
-        --border-subtle: #E2E8F0;
-        --border-focus: #2563EB;
         --brand-blue: #2563EB;
         --brand-blue-hover: #1D4ED8;
+        --brand-glow: rgba(37, 99, 235, 0.15);
     }
 
+    /* Global Reset & Typography */
     html, body, [class*="css"] {
         font-family: var(--font-sans) !important;
         -webkit-font-smoothing: antialiased;
+        color: var(--text-primary) !important;
     }
     
-    /* Main Canvas Background */
     .stApp {
-        background-color: #F8FAFC !important;
+        background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%) !important;
     }
 
-    /* Hero Header */
+    /* Smooth Fade-In Animation */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .stApp > div:first-child {
+        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hero Header with Mesh Gradient */
     .hero-container {
-        background: linear-gradient(135deg, #0B132B 0%, #1C2541 55%, #1E3A8A 100%);
-        border-radius: 16px;
-        padding: 2.2rem 2.4rem;
-        margin-bottom: 1.8rem;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25), 0 8px 10px -6px rgba(15, 23, 42, 0.15);
+        background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+        border-radius: 20px;
+        padding: 2.5rem 2.8rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(255,255,255,0.05) inset;
         position: relative;
         overflow: hidden;
     }
-    .hero-container::after {
+    .hero-container::before {
         content: "";
         position: absolute;
-        top: -40%;
-        right: -15%;
-        width: 350px;
-        height: 350px;
-        background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(255,255,255,0) 70%);
+        top: -50%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(255,255,255,0) 70%);
         pointer-events: none;
     }
     .hero-badge {
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
-        background: rgba(37, 99, 235, 0.2);
+        background: rgba(255, 255, 255, 0.1);
         color: #93C5FD !important;
-        border: 1px solid rgba(147, 197, 253, 0.35);
-        backdrop-filter: blur(8px);
+        border: 1px solid rgba(147, 197, 253, 0.2);
+        backdrop-filter: blur(12px);
         border-radius: 9999px;
-        padding: 0.28rem 0.85rem;
-        font-size: 0.76rem;
+        padding: 0.35rem 1rem;
+        font-size: 0.75rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.06em;
-        margin-bottom: 0.85rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
     }
     .hero-title {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
         font-weight: 800;
         color: #FFFFFF !important;
-        margin-bottom: 0.45rem;
-        letter-spacing: -0.025em;
-        line-height: 1.2;
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
     }
     .hero-subtitle {
-        font-size: 1.02rem;
-        color: #94A3B8 !important;
-        line-height: 1.55;
-        max-width: 840px;
-        margin-bottom: 0;
+        font-size: 1.05rem;
+        color: #CBD5E1 !important;
+        line-height: 1.6;
+        max-width: 700px;
+        font-weight: 500;
     }
 
-    /* Executive Stat Card */
+    /* Premium Stat Cards */
     .stat-card {
         background: #FFFFFF;
         border: 1px solid #E2E8F0;
-        border-radius: 14px;
-        padding: 1.2rem 1.35rem;
-        box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
-        transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 16px;
+        padding: 1.4rem 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         flex-direction: column;
         justify-content: center;
+        position: relative;
+        overflow: hidden;
     }
     .stat-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 18px -4px rgba(15, 23, 42, 0.08);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
         border-color: #CBD5E1;
     }
     .stat-label {
-        font-size: 0.76rem;
+        font-size: 0.75rem;
         font-weight: 700;
         color: #64748B !important;
         text-transform: uppercase;
         letter-spacing: 0.06em;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.5rem;
     }
     .stat-value {
-        font-size: 1.85rem;
+        font-size: 2rem;
         font-weight: 800;
         color: #0F172A !important;
-        line-height: 1.1;
-        letter-spacing: -0.025em;
+        line-height: 1;
+        letter-spacing: -0.03em;
     }
 
     /* Status Badges */
     .status-badge {
         display: inline-flex;
         align-items: center;
-        gap: 0.35rem;
-        padding: 0.32rem 0.8rem;
+        gap: 0.4rem;
+        padding: 0.35rem 0.9rem;
         border-radius: 9999px;
         font-weight: 700;
-        font-size: 0.78rem;
+        font-size: 0.75rem;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        transition: all 0.15s ease;
+        transition: all 0.2s ease;
     }
-    .badge-classified { background-color: #EFF6FF !important; color: #1D4ED8 !important; border: 1px solid #BFDBFE !important; }
-    .badge-clarification { background-color: #FFFBEB !important; color: #B45309 !important; border: 1px solid #FDE68A !important; }
-    .badge-ready { background-color: #EEF2FF !important; color: #4338CA !important; border: 1px solid #C7D2FE !important; }
-    .badge-approved { background-color: #ECFDF5 !important; color: #047857 !important; border: 1px solid #A7F3D0 !important; }
-    .badge-submitted { background-color: #F0F9FF !important; color: #0284C7 !important; border: 1px solid #BAE6FD !important; }
-    .badge-overdue { background-color: #FEF2F2 !important; color: #DC2626 !important; border: 1px solid #FECACA !important; animation: pulse 2s infinite; }
-    .badge-appeal { background-color: #F5F3FF !important; color: #7C3AED !important; border: 1px solid #DDD6FE !important; }
+    .badge-classified { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+    .badge-clarification { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
+    .badge-ready { background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; }
+    .badge-approved { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; }
+    .badge-submitted { background: #F0F9FF; color: #0284C7; border: 1px solid #BAE6FD; }
+    .badge-overdue { background: #FEF2F2; color: #DC2626; border: 1px solid #FECACA; animation: pulse 2s infinite; }
+    .badge-appeal { background: #F5F3FF; color: #7C3AED; border: 1px solid #DDD6FE; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.78; }
-    }
-
-    /* Modern Minimal Civic Card */
+    /* Modern Content Cards */
     .civic-card {
         background: #FFFFFF !important;
         border: 1px solid #E2E8F0 !important;
-        border-radius: 12px !important;
-        padding: 1.25rem 1.5rem !important;
+        border-radius: 14px !important;
+        padding: 1.4rem 1.6rem !important;
         margin-bottom: 1rem !important;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
-        transition: border-color 0.2s ease;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .civic-card:hover {
-        border-color: #CBD5E1 !important;
+        border-color: #94A3B8 !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.04) !important;
     }
     .civic-card h4 {
         color: #0F172A !important;
         font-weight: 700 !important;
-        font-size: 1.08rem !important;
+        font-size: 1.05rem !important;
         margin-top: 0 !important;
-        margin-bottom: 0.5rem !important;
-        letter-spacing: -0.01em;
+        margin-bottom: 0.6rem !important;
     }
     .civic-card p, .civic-card li {
-        color: #334155 !important;
-        font-size: 0.94rem !important;
-        line-height: 1.55 !important;
+        color: #475569 !important;
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
     }
 
-    /* Citation Card */
+    /* Citation & Disclaimer Cards */
     .citation-card {
         background: #F0FDF4 !important;
         border: 1px solid #BBF7D0 !important;
         border-left: 4px solid #10B981 !important;
         border-radius: 10px !important;
-        padding: 0.95rem 1.2rem !important;
-        margin-top: 0.6rem !important;
+        padding: 1rem 1.2rem !important;
+        margin-top: 0.8rem !important;
         color: #14532D !important;
-        font-size: 0.92rem !important;
+        font-size: 0.9rem !important;
     }
-    .citation-card strong {
-        color: #166534 !important;
-        font-weight: 700;
-    }
-    .citation-card em {
-        color: #15803D !important;
-    }
-
-    /* Timeline Nodes */
-    .timeline-node {
-        background: #FFFFFF !important;
-        border: 1px solid #E2E8F0 !important;
-        border-left: 3.5px solid #2563EB !important;
-        padding: 0.8rem 1.1rem !important;
-        margin-bottom: 0.5rem !important;
-        border-radius: 0 8px 8px 0 !important;
-        color: #1E293B !important;
-        font-size: 0.92rem !important;
-    }
-    .timeline-node strong {
-        color: #0F172A !important;
-        font-weight: 700 !important;
-    }
-    .timeline-node code {
-        background: #F1F5F9 !important;
-        color: #0F172A !important;
-        padding: 0.15rem 0.45rem !important;
-        border-radius: 4px !important;
-        font-family: var(--font-mono) !important;
-        font-size: 0.82rem !important;
-        border: 1px solid #E2E8F0 !important;
+    .disclaimer-card {
+        background: #FFFBEB !important;
+        border: 1px solid #FDE68A !important;
+        border-left: 4px solid #D97706 !important;
+        padding: 1.2rem 1.4rem !important;
+        font-size: 0.9rem !important;
+        color: #78350F !important;
+        border-radius: 12px !important;
+        margin-top: 2.5rem !important;
+        box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.05);
     }
 
-    /* Document Viewer Container */
+    /* Document Viewer */
     .document-preview-box {
         background: #FFFFFF !important;
-        border: 1.5px solid #CBD5E1 !important;
-        border-radius: 12px !important;
-        padding: 2.2rem 2.5rem !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 16px !important;
+        padding: 2.5rem !important;
         color: #0F172A !important;
-        line-height: 1.7 !important;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.02) !important;
-        margin: 1.2rem 0 !important;
+        line-height: 1.75 !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03) !important;
+        margin: 1.5rem 0 !important;
     }
     .document-ribbon {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
         background: #F1F5F9;
         border: 1px solid #CBD5E1;
         color: #475569;
@@ -283,105 +267,138 @@ st.markdown("""
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        padding: 0.25rem 0.65rem;
-        border-radius: 6px;
-        margin-bottom: 1.2rem;
-    }
-    .document-preview-box h1, .document-preview-box h2, .document-preview-box h3, .document-preview-box h4 {
-        font-family: 'Plus Jakarta Sans', sans-serif !important;
-        color: #0F172A !important;
-        font-weight: 800 !important;
-        letter-spacing: -0.02em;
-    }
-    .document-preview-box hr {
-        border-color: #E2E8F0 !important;
-        margin: 1.2rem 0 !important;
-    }
-    .document-preview-box blockquote {
-        background: #F8FAFC !important;
-        border-left: 4px solid #64748B !important;
-        margin: 0.8rem 0 !important;
-        padding: 0.6rem 1.1rem !important;
-        color: #1E293B !important;
-        border-radius: 0 6px 6px 0 !important;
+        padding: 0.35rem 0.8rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
     }
 
-    /* Disclaimer Card */
-    .disclaimer-card {
-        background: #FFFBEB !important;
-        border: 1px solid #FDE68A !important;
-        border-left: 4px solid #D97706 !important;
-        padding: 1.05rem 1.25rem !important;
+    /* Timeline Nodes */
+    .timeline-node {
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-left: 4px solid #2563EB !important;
+        padding: 0.9rem 1.2rem !important;
+        margin-bottom: 0.6rem !important;
+        border-radius: 0 10px 10px 0 !important;
+        color: #334155 !important;
         font-size: 0.9rem !important;
-        color: #78350F !important;
-        border-radius: 10px !important;
-        margin-top: 2rem !important;
+        transition: transform 0.2s ease;
     }
-    .disclaimer-card strong {
-        color: #92400E !important;
+    .timeline-node:hover {
+        transform: translateX(4px);
+    }
+    .timeline-node code {
+        background: #F1F5F9 !important;
+        color: #0F172A !important;
+        padding: 0.2rem 0.5rem !important;
+        border-radius: 6px !important;
+        font-family: var(--font-mono) !important;
+        font-size: 0.8rem !important;
+        border: 1px solid #E2E8F0 !important;
     }
 
-    /* Streamlit Tab Customization */
+    /* Streamlit Native Overrides */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 6px;
+        gap: 8px;
         background-color: transparent;
-        border-bottom: 1px solid #E2E8F0;
-        padding-bottom: 2px;
+        border-bottom: 2px solid #E2E8F0;
+        padding-bottom: 0;
     }
     .stTabs [data-baseweb="tab"] {
-        border-radius: 8px 8px 0 0;
-        padding: 9px 16px;
+        border-radius: 10px 10px 0 0;
+        padding: 10px 20px;
         font-weight: 600;
-        font-size: 0.92rem;
+        font-size: 0.9rem;
         color: #64748B;
         border: none;
         background-color: transparent;
         transition: all 0.2s ease;
+        margin-bottom: -2px;
     }
     .stTabs [aria-selected="true"] {
         color: #2563EB !important;
         background-color: #EFF6FF !important;
-        border-bottom: 2.5px solid #2563EB !important;
+        border-bottom: 2px solid #2563EB !important;
+    }
+
+    /* Inputs & Text Areas */
+    .stTextInput > div > div > input, .stTextArea > div > div > textarea, .stSelectbox > div > div > select {
+        border-radius: 10px !important;
+        border: 1.5px solid #E2E8F0 !important;
+        background-color: #FFFFFF !important;
+        font-size: 0.95rem !important;
+        transition: all 0.2s ease !important;
+    }
+    .stTextInput > div > div > input:focus, .stTextArea > div > div > textarea:focus, .stSelectbox > div > div > select:focus {
+        border-color: #2563EB !important;
+        box-shadow: 0 0 0 4px var(--brand-glow) !important;
+        outline: none !important;
     }
 
     /* Buttons */
     .stButton > button[kind="primary"] {
-        background-color: #2563EB !important;
+        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
         color: #FFFFFF !important;
-        border: 1px solid #1D4ED8 !important;
-        border-radius: 8px !important;
+        border: none !important;
+        border-radius: 10px !important;
         font-weight: 600 !important;
-        padding: 0.55rem 1.2rem !important;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+        font-size: 0.95rem !important;
+        padding: 0.65rem 1.4rem !important;
+        box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2) !important;
         transition: all 0.2s ease !important;
     }
     .stButton > button[kind="primary"]:hover {
-        background-color: #1D4ED8 !important;
-        box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.25) !important;
-        transform: translateY(-1px) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3) !important;
+    }
+    .stButton > button[kind="secondary"] {
+        border-radius: 10px !important;
+        border: 1.5px solid #E2E8F0 !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+    }
+    .stButton > button[kind="secondary"]:hover {
+        border-color: #CBD5E1 !important;
+        background-color: #F8FAFC !important;
     }
 
     /* Sidebar Polish */
     section[data-testid="stSidebar"] {
-        background-color: #F8FAFC !important;
+        background-color: #FFFFFF !important;
         border-right: 1px solid #E2E8F0 !important;
     }
     .sidebar-ref-pill {
         display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.42rem 0.7rem;
-        margin-bottom: 0.4rem;
-        border-radius: 6px;
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        font-size: 0.83rem;
-        color: #1E293B;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 0.6rem 0.8rem;
+        margin-bottom: 0.5rem;
+        border-radius: 8px;
+        background: #F8FAFC;
+        border: 1px solid #F1F5F9;
+        font-size: 0.82rem;
+        color: #334155;
         line-height: 1.4;
+        transition: all 0.2s ease;
+    }
+    .sidebar-ref-pill:hover {
+        background: #EFF6FF;
+        border-color: #BFDBFE;
     }
     .sidebar-ref-pill strong {
         color: #2563EB;
         font-size: 0.82rem;
+    }
+    
+    /* Expander Styling */
+    .streamlit-expanderHeader {
+        font-weight: 600 !important;
+        color: #0F172A !important;
+        border-radius: 10px !important;
+        transition: background 0.2s ease;
+    }
+    .streamlit-expanderHeader:hover {
+        background-color: #F8FAFC !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -394,29 +411,21 @@ if "active_case_id" not in st.session_state:
 def render_status_badge(status: str) -> str:
     status_lower = (status or "").lower()
     if "clarification" in status_lower:
-        cls = "badge-clarification"
-        icon = "⚠️"
+        cls, icon = "badge-clarification", "⚠️"
     elif "classified" in status_lower or "matched" in status_lower:
-        cls = "badge-classified"
-        icon = "🏷️"
+        cls, icon = "badge-classified", "🏷️"
     elif "draft_ready" in status_lower:
-        cls = "badge-ready"
-        icon = "📄"
+        cls, icon = "badge-ready", "📄"
     elif "approved" in status_lower:
-        cls = "badge-approved"
-        icon = "✅"
+        cls, icon = "badge-approved", "✅"
     elif "submitted" in status_lower or "awaiting" in status_lower:
-        cls = "badge-submitted"
-        icon = "📬"
+        cls, icon = "badge-submitted", "📬"
     elif "overdue" in status_lower:
-        cls = "badge-overdue"
-        icon = "🚨"
+        cls, icon = "badge-overdue", "🚨"
     elif "appeal" in status_lower:
-        cls = "badge-appeal"
-        icon = "⚖️"
+        cls, icon = "badge-appeal", "⚖️"
     else:
-        cls = "badge-classified"
-        icon = "📌"
+        cls, icon = "badge-classified", "📌"
     return f'<span class="status-badge {cls}">{icon} {status}</span>'
 
 
@@ -532,7 +541,6 @@ with tabs[0]:
             height=130,
         )
         
-        # Real-time keyword analysis preview
         if user_text.strip():
             preview_class = classify_civic_issue(user_text)
             preview_questions = needs_clarification(user_text)
@@ -561,7 +569,6 @@ with tabs[0]:
             st.success(f"Case `{new_case.id}` successfully initialized and classified!")
             st.rerun()
 
-    # Active Case Summary Card
     if st.session_state.active_case_id:
         with db_context() as db:
             case_data = case_service.get_case_detail(db, st.session_state.active_case_id)
@@ -611,7 +618,6 @@ with tabs[1]:
         if case_data and case_data.get("draft_markdown"):
             st.divider()
             
-            # Fee & Legal Citations Cards
             col_fee, col_cite = st.columns([1, 1])
             with col_fee:
                 fee_info = case_data.get("fee_json") or {}
@@ -643,7 +649,9 @@ with tabs[1]:
 
             st.markdown("### 📄 Generated RTI Application Document")
             st.markdown('<div class="document-ribbon">🏛️ Official Statutory RTI Draft • Section 6(1)</div>', unsafe_allow_html=True)
-            st.markdown(case_data["draft_markdown"])
+            
+            # Wrap markdown in a styled container for better presentation
+            st.markdown(f'<div class="document-preview-box">{case_data["draft_markdown"]}</div>', unsafe_allow_html=True)
             
             col_d1, col_d2 = st.columns(2)
             with col_d1:
@@ -717,7 +725,6 @@ with tabs[2]:
                 </div>
                 """, unsafe_allow_html=True)
 
-            # Calculation & Overdue Banner
             today = datetime.date.today()
             due_d = datetime.date.fromisoformat(case_data["response_due_date"])
             
@@ -729,7 +736,6 @@ with tabs[2]:
                 remaining = (due_d - today).days
                 st.info(f"⏳ **Awaiting Response:** {remaining} days remaining before statutory deadline of `{case_data['response_due_date']}`.")
 
-            # Timeline Breakdown
             st.markdown("#### ⏳ Statutory Milestone Sequence")
             st.markdown(f"""
             - 📬 **Submission:** `{case_data['submission_date']}` — RTI Application filed with PIO
@@ -774,7 +780,7 @@ with tabs[3]:
                 st.divider()
                 st.markdown("### ⚖️ Generated First Appeal Document")
                 st.markdown('<div class="document-ribbon" style="background:#F5F3FF; border-color:#DDD6FE; color:#7C3AED;">⚖️ Statutory First Appeal • Section 19(1) RTI Act</div>', unsafe_allow_html=True)
-                st.markdown(case_data["appeal_markdown"])
+                st.markdown(f'<div class="document-preview-box">{case_data["appeal_markdown"]}</div>', unsafe_allow_html=True)
                 
                 col_ap1, col_ap2 = st.columns(2)
                 with col_ap1:
@@ -802,7 +808,6 @@ with tabs[4]:
     with db_context() as db:
         all_cases = case_service.list_cases(db)
 
-    # Filter controls
     col_f1, col_f2 = st.columns(2)
     with col_f1:
         status_filter = st.selectbox(
@@ -847,7 +852,6 @@ with tabs[4]:
                         st.success(f"Case `{c['id'][:8]}` deleted.")
                         st.rerun()
 
-                # Audit Events Timeline (extracted safely inside active session)
                 with db_context() as db:
                     raw_events = case_service.get_case_events(db, c["id"])
                     events_data = []
